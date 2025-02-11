@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar";
 import Spreader from '../assets/Spreader.png'
 import saladBowl from '../assets/Salad Bowl.png'
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import getPlanImg from '../assets/getYourPlan.png'
 import uploadMealImg from '../assets/UploadMeal.png'
 import GeminiImg from '../assets/gemini.png'
@@ -13,6 +12,8 @@ import g2 from '../assets/grid2.png'
 import g3 from '../assets/grid3.png'
 import g4 from '../assets/grid4.png'
 import g5 from '../assets/grid5.png'
+import spoonImg from '../assets/spoon.png'
+import { motion } from "motion/react";
 
 
 const LandingPage = () => {
@@ -52,7 +53,7 @@ const LandingPage = () => {
     return (
         <div className="bg-[#FBE9D1]">
         <div className="bg-[#FBE9D1] w-full h-screen">
-        <Navbar></Navbar>
+        <Navbar/>
         <img src={Spreader} alt="" className="absolute left-[-260px] z-20 h-85 rotate-330 top-18" />
         <div className="flex flex-col justify-center items-center text-center text-[#5A802D] font-extrabold text-7xl mt-15">
         <div id="tagline">Stay On Track with <br />AI-Powered Nutrition</div>
@@ -61,10 +62,14 @@ const LandingPage = () => {
         Get personalized meal plans, track your daily calorie intake, and <br /> discover the nutrients in every meal with our GenAI assistant.
         </div>
         <div className="flex justify-center items-center mt-4 bg-[#FBE9D1]">
-        <button className="bg-[#5A802D] text-white text-lg font-semibold p-2 rounded-lg shadow-md hover:bg-[#4d6c25] transition-all">
-        Sign Up Now
-        </button>
-        </div>
+              <motion.button
+                className="bg-[#5A802D] text-white text-lg font-semibold p-2 rounded-lg shadow-md hover:bg-[#4d6c25] transition-all"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+              >
+                Sign Up Now
+              </motion.button>
+            </div>
         <div className="relative w-full mt-25 bg-[#FBE9D1]">
             <div className="absolute inset-0 flex items-center justify-center -top-60">
                 <motion.img src={saladBowl} className="h-120" 
@@ -83,7 +88,7 @@ const LandingPage = () => {
     </motion.p>
 
     <motion.img 
-    className="absolute right-0 flex overflow-x-hidden h-80"
+    className="absolute right-0 flex overflow-x-hidden h-25"
     src={forkImg}
     initial={{ opacity: 0, y: 20 }}
         animate={x <= -200 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }} 
@@ -128,7 +133,7 @@ const LandingPage = () => {
         <section className="relative -mt-10">
         <div className="">
             <motion.img 
-                className="absolute left-0 transform rotate-180 -translate-y-1/2 top-1/4 h-70"
+                className="absolute left-0 transform rotate-180 -translate-y-1/2 h-25 top-1/4"
                 src={forkImg}
                 initial={{ opacity: 0, y: 20 }}
                 animate={x <= -200 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -164,75 +169,109 @@ const LandingPage = () => {
   <div className="absolute grid grid-cols-2 grid-rows-2 gap-6 p-10 top-50 bg-[#98BE69]">
 
   {/* 1st Cell */}
-        <div id="PersonalizedMealPlans" className="relative landingPageGrid">
-          <img 
-            src={g1} 
-            alt="heartBowl"
-            className="absolute top-0 right-0 -translate-y-10 translate-x-35 h-65" 
-          />
-          <h3 className="text-4xl font-bold">
-            Personalized <br /> Meal Plans
-          </h3>
-          <p>
-            Our AI tailors daily calorie and macro <br /> targets to your specific goals <br /> 
-            and dietary preferences.
-          </p>
-        </div>
+        {/* 1st Cell */}
+      <motion.div
+        id="PersonalizedMealPlans"
+        className="relative landingPageGrid"
+        // Add hover & tap scale here
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <img
+          src={g1}
+          alt="heartBowl"
+          className="absolute top-0 right-0 -translate-y-10 translate-x-35 h-65"
+        />
+        <h3 className="text-4xl font-bold">
+          Personalized <br /> Meal Plans
+        </h3>
+        <p>
+          Our AI tailors daily calorie and macro <br />
+          targets to your specific goals <br />
+          and dietary preferences.
+        </p>
+      </motion.div>
 
-        {/* 2nd Cell */}
-        <div id="Convenient" className="relative landingPageGrid">
-          {/* If you also have a 2nd image, place it here in the same way */}
-          <img 
-            src={g2} 
-            alt="handphoto"
-            className="absolute top-0 right-0 translate-x-0 -translate-y-9 h-55 rounded-2xl" 
-          />
-          <h3 className="text-4xl font-bold">
-            Convenient  Photo<br /> Upload
-          </h3>
-          <p>
-            Simply snap a picture of your meal <br />no more manual logging or guesswork.
-          </p>
-        </div>
+      {/* 2nd Cell */}
+      <motion.div
+        id="Convenient"
+        className="relative landingPageGrid"
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <img
+          src={g2}
+          alt="handphoto"
+          className="absolute top-0 right-0 translate-x-0 -translate-y-9 h-55 rounded-2xl"
+        />
+        <h3 className="text-4xl font-bold">
+          Convenient Photo
+          <br /> Upload
+        </h3>
+        <p>
+          Simply snap a picture of your meal
+          <br />
+          no more manual logging or guesswork.
+        </p>
+      </motion.div>
 
-        {/* 3rd Cell */}
-        <div id="Real-Time AI Assistance" className="relative landingPageGrid">
-          <img 
-              src={g3} 
-              alt="heartBowl"
-              className="absolute top-0 right-0 -translate-y-0 translate-x-18 h-45" 
-              />
-          <h3 className="text-4xl font-bold">
-            Real-Time AI <br /> Assistance
-          </h3>
-          <p>
-            Chat directly with our GenAI for <br /> instant nutrition advice, 
-            meal <br /> suggestions, and accountability.
-          </p>
-        </div>
+      {/* 3rd Cell */}
+      <motion.div
+        id="Real-Time AI Assistance"
+        className="relative landingPageGrid"
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <img
+          src={g3}
+          alt="heartBowl"
+          className="absolute top-0 right-0 -translate-y-0 translate-x-18 h-45"
+        />
+        <h3 className="text-4xl font-bold">
+          Real-Time AI <br /> Assistance
+        </h3>
+        <p>
+          Chat directly with our GenAI for <br />
+          instant nutrition advice,
+          meal <br />
+          suggestions, and accountability.
+        </p>
+      </motion.div>
 
-        {/* 4th Cell */}
-        <div id="Comprehensive Tracking" className="relative landingPageGrid">
-        <img 
-            src={g4} 
-            alt="heartBowl"
-            className="absolute top-0 right-0 h-40 translate-x-0 translate-y-6" 
-          />
-          <h3 className="text-4xl font-bold">
-            Comprehensive <br /> Tracking
-          </h3>
-          <p>
-            Keep tabs on your calorie intake,<br /> macronutrient balance, and <br /> progress 
-            over time with user-friendly dashboards.
-          </p>
-        </div>  
+      {/* 4th Cell */}
+      <motion.div
+        id="Comprehensive Tracking"
+        className="relative landingPageGrid"
+        whileHover={{ scale: 1.01 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <img
+          src={g4}
+          alt="heartBowl"
+          className="absolute top-0 right-0 h-40 translate-x-0 translate-y-6"
+        />
+        <h3 className="text-4xl font-bold">
+          Comprehensive <br /> Tracking
+        </h3>
+        <p>
+          Keep tabs on your calorie intake,
+          <br />
+          macronutrient balance, and
+          <br /> progress over time with user-friendly dashboards.
+        </p>
+      </motion.div>
 
-        
-        <div id="Comprehensive Tracking" className="p-4 border-[#5A802D] border-5 rounded-3xl flex flex-col text-[#3D571E] w-283">
-        <img 
+      {/* 5th Cell */}
+      <motion.div
+        id="Comprehensive Tracking"
+        className="p-4 border-[#5A802D] shadow-xl border-5 rounded-3xl flex flex-col text-[#3D571E] w-283"
+        whileHover={{ scale: 1.0 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <img
           src={g5}
           alt="heartBowl"
-          className="absolute top-0 right-0 translate-x-0 translate-y-105 h-50 w-110"
+          className="absolute top-0 right-0 -translate-x-20 h-35 translate-y-120 w-75"
         />
 
           <h3 className="text-4xl font-bold">
@@ -243,17 +282,36 @@ const LandingPage = () => {
           <br /> Track each other's progress, compare stats, and celebrate milestones together. 
           <br />A friendly challenge keeps everyone motivated—and makes staying healthy more fun!
           </p>
-        </div>    
+
+         
+        </motion.div> 
+        
+          
+    </div> 
+ 
+</section> 
+
+</div>  
+      <div className="flex items-end justify-center w-full bg-[#FBE9D1] h-307">
+      </div>
+<section id="Footer" className="bg-[#FBE9D1] pt-4 pb-4 flex justify-between">
+  <img src={spoonImg} alt="" className="left-0 h-25"/>
+      <p className="font-extrabold text-[#3D571E] text-4xl justify-center flex pt-3">"Healthy eating is a <br />form of self-respect."</p>
+
+  <img src={forkImg} alt="" className="right-0 h-20 "/>
+</section>
+
+<div className="flex flex-row justify-between p-2bg-[#3D571E] shadow-xl rounded-t-xl p-2 text-white font-semibold bg-white">
+    <button className="footer-button hover:underline" >Home</button>
+    <button className="footer-button hover:underline">Privacy Policy</button>
+    <button className="footer-button hover:underline">Terms and Conditions</button>
+    <button className="footer-button hover:underline">About Us</button>
+    <button className="footer-button hover:underline">View Plans</button>
+    <button className="footer-button hover:underline">Contact Us</button>
+
 </div>
-      
 
-
-        
-        </section>
-        
-        </div>
-        
-        </div>
+</div>
     );
 }
 

@@ -7,3 +7,28 @@ body {
 .landingPageGrid {
   @apply p-4 border-[#5A802D] border-5 rounded-3xl flex flex-col text-[#3D571E];
 }
+
+.footer-button {
+  @apply bg-[#3D571E] shadow-xl rounded-xl p-2 text-white font-semibold;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+/* .no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  /* scrollbar-width: none; /* Firefox */
+  /* overflow-y: scroll;  */
+
+  /* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar for Webkit-based browsers */
+}
+
+body {
+  -ms-overflow-style: none;  /* Hides the scrollbar for Internet Explorer */
+  scrollbar-width: none;    /* Hides the scrollbar for Firefox */
+}
