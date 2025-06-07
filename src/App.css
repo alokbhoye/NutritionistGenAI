@@ -12,6 +12,15 @@ body {
   @apply bg-[#3D571E] shadow-xl rounded-xl p-2 text-white font-semibold;
 }
 
+
+.message-output {
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  margin-top: 10px;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera
 .no-scrollbar::-webkit-scrollbar {
   display: none;

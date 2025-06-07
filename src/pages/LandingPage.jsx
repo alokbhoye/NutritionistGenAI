@@ -13,7 +13,7 @@ import g3 from '../assets/grid3.png'
 import g4 from '../assets/grid4.png'
 import g5 from '../assets/grid5.png'
 import spoonImg from '../assets/spoon.png'
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 
 const LandingPage = () => {
